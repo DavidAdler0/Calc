@@ -1,17 +1,16 @@
+using System;
+
 namespace Calc
 {
     public partial class Form1 : Form
     {
         private TextBox active;
-        private Dictionary<string, Func> myDictionary = new Dictionary<string, Func>;
-
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -42,8 +41,25 @@ namespace Calc
 
         private void result_Click(object sender, EventArgs e)
         {
-            
-            textBox3.Text = Convert.ToString(Convert.ToInt16(textBox1.Text) + Convert.ToInt16(textBox2.Text));
+            int num1 = Convert.ToInt16(textBox1.Text);
+            int num2 = Convert.ToInt16(textBox2.Text);
+            switch (comboBox1.Text)
+            {
+                case "+":
+                    textBox3.Text = Convert.ToString(num1 + num2);
+                    break;
+                case "-":
+                    textBox3.Text = Convert.ToString(num1 - num2);
+                    break;
+                case "*":
+                    textBox3.Text = Convert.ToString(num1 * num2);
+                    break;
+                case "/":
+                    textBox3.Text = Convert.ToString(num1 / num2);
+                    break;
+                default:
+                    break;
+            }
         }
        
     }
